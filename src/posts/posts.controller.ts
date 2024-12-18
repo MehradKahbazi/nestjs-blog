@@ -21,6 +21,7 @@ export class PostsController {
     public createPost(
         @Body() createPostDto: CreatePostDto
     ){
-
+        console.log(createPostDto);
+        
     }
 }
