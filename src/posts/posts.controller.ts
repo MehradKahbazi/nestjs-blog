@@ -13,10 +13,12 @@ export class PostsController {
     public getPosts(
         @Param('userId') userId : number
     ){
-        console.log('controller');
+        
         
         return this.postsService.findAll(userId);
     }
+
+    
 
     @ApiOperation({
         summary: 'Creates a new blog post'
