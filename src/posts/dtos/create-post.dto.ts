@@ -99,19 +99,15 @@ export class CreatePostDto {
     items:{
       type: 'object',
       properties:{
-        key:{
-          type: 'string',
-          description: 'Key can be any string identifire for your meta option',
-          example: 'sidebar enabled'
+        metaValue:{
+          type: 'json',
+          description: 'MetaValue is a json string',
+          example: '{"sidebar-enabled": "true"}'
         },
-        value:{
-          type: 'any',
-          description: 'Any value you want to assign to the key',
-          example: 'sidebar enabled'
-        }
+       
       }
     },
     
   })
-  metaOptions?: CreateProstMetaOptionsDto[];
+  metaOptions?: CreateProstMetaOptionsDto | null;
 }
