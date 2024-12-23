@@ -1,4 +1,4 @@
-import { IsArray, IsEnum, IsISO8601, IsJSON, IsNotEmpty, IsOptional, IsString, IsUrl, Matches, MinLength, ValidateNested } from 'class-validator';
+import { IsArray, IsEnum, IsISO8601, IsJSON, IsNotEmpty, IsOptional, IsString, IsUrl, Matches, MaxLength, MinLength, ValidateNested } from 'class-validator';
 import { postStatus } from '../enums/postStatus.enum';
 import { postType } from '../enums/postType.enum';
 import { CreateProstMetaOptionsDto } from './create-post-meta-options.dto';
@@ -8,6 +8,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 export class CreatePostDto {
   @IsString()
   @MinLength(4)
+  @MaxLength(512)
   @IsNotEmpty()
   @ApiProperty({
     description: 'This takes in blog post title',
@@ -25,6 +26,7 @@ export class CreatePostDto {
 
   @IsString()
   @IsNotEmpty()
+  @MaxLength(256)
   @Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
     message:
       'A slug should be all small letters and uses only "-" and without spaces. For example "my-url"',
@@ -62,6 +64,7 @@ export class CreatePostDto {
 
   @IsUrl()
   @IsOptional()
+  @MaxLength(1024)
   @ApiPropertyOptional({
     description: 'takes in featured image url',
     example: 'http://localhost.com/images/image1.jpg' 
