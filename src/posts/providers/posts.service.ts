@@ -18,6 +18,12 @@ export class PostsService {
          */
         @InjectRepository(Post)
         private readonly postsRepository: Repository<Post>,
+
+        /**
+         * injecting metaOptionsRepository
+         */
+        @InjectRepository(MetaOption)
+        public readonly metaOptionsRepository: Repository<MetaOption>
         
     ){}
 
@@ -43,5 +49,20 @@ export class PostsService {
         let posts = await this.postsRepository.find()
 
         return posts
+    }
+
+    /**
+     * deleting a post and its related meta options along
+     */
+
+    public async delete(id: number){
+        let post = await this.postsRepository.findOneBy({ id });
+
+        await this.postsRepository.delete(id)
+        await this.metaOptionsRepository.delete(post.metaOptions.id)
+
+        return {
+            deleted: true, id,
+        }
     }
 }
