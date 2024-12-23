@@ -1,4 +1,4 @@
-import { IsArray, IsEnum, IsISO8601, IsJSON, IsNotEmpty, IsOptional, IsString, IsUrl, Matches, MaxLength, MinLength, ValidateNested } from 'class-validator';
+import { IsArray, IsEnum, IsISO8601, IsInt, IsJSON, IsNotEmpty, IsOptional, IsString, IsUrl, Matches, MaxLength, MinLength, ValidateNested } from 'class-validator';
 import { postStatus } from '../enums/postStatus.enum';
 import { postType } from '../enums/postType.enum';
 import { CreateProstMetaOptionsDto } from '../../meta-options/dtos/create-post-meta-options.dto';
@@ -46,13 +46,14 @@ export class CreatePostDto {
   })
   status: postStatus;
 
+
   @IsString()
   @IsOptional()
   @ApiPropertyOptional({
     description: 'Takes in blog post content',
     example: 'new blog post'
   })
-  constent?: string;
+  content?: string;
 
   @IsJSON()
   @IsOptional()
@@ -110,4 +111,14 @@ export class CreatePostDto {
     
   })
   metaOptions?: CreateProstMetaOptionsDto | null;
+
+  @ApiProperty({
+    type: 'integer',
+    required: true,
+    example: 1
+  })
+  @IsNotEmpty()
+  @IsInt()
+  authorId: number;
+
 }

@@ -11,7 +11,7 @@ export class PostsController {
 
     @Get('/:userId?')
     public getPosts(
-        @Param('userId') userId : string
+        @Param('userId') userId : number
     ){
         console.log('controller');
         
@@ -25,11 +25,13 @@ export class PostsController {
         status: 201,
         description: 'You\'ll get a 201 response if your post is successfuly created'
     })
+
     @Post()
     public createPost(
         @Body() createPostDto: CreatePostDto
     ){
-        console.log(createPostDto);
+        
+        return this.postsService.create(createPostDto);
         
     }
 
