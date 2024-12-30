@@ -5,6 +5,8 @@ import { Repository } from 'typeorm';
 import { Post } from '../post.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MetaOption } from 'src/meta-options/meta-option.entity';
+import { TagsService } from 'src/tags/providers/tags.service';
+import { PatchPostDto } from '../dtos/patch-post.dto';
 
 @Injectable()
 export class PostsService {
@@ -23,7 +25,13 @@ export class PostsService {
          * injecting metaOptionsRepository
          */
         @InjectRepository(MetaOption)
-        public readonly metaOptionsRepository: Repository<MetaOption>
+        public readonly metaOptionsRepository: Repository<MetaOption>,
+
+        /**
+         * injet tagsService
+         */
+        
+        private readonly tagsService: TagsService,
         
     ){}
 
@@ -36,7 +44,10 @@ export class PostsService {
         
         let author= await this.usersService.findOneById(createPostDto.authorId)
 
-        let post = this.postsRepository.create({...createPostDto, author: author})
+        // find tags
+        let tags = await this.tagsService.findMultipleTags(createPostDto.tags)
+
+        let post = this.postsRepository.create({...createPostDto, author: author, tags: tags})
 
         return await this.postsRepository.save(post)
     }
@@ -64,5 +75,13 @@ export class PostsService {
         return {
             deleted: true, id,
         }
+    }
+
+    /**
+     * update posts
+     */
+
+    public async update(patchPostDto: PatchPostDto){
+
     }
 }
