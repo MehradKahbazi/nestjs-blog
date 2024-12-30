@@ -79,7 +79,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content class">
+               <div class="content entity">
                    <div class="content-data">
 
 
@@ -87,15 +87,9 @@
 
 
 
-
-
-
-
-
-
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Classes</li>
-  <li class="breadcrumb-item" >CreateProstMetaOptionsDto</li>
+  <li class="breadcrumb-item">Entities</li>
+  <li class="breadcrumb-item" >MetaOption</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -119,10 +113,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/meta-options/dtos/create-post-meta-options.dto.ts</code>
+            <code>src/meta-options/meta-option.entity.ts</code>
         </p>
-
-
 
 
 
@@ -141,8 +133,24 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
+                                <a href="#createDate" >createDate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
                                     <span class="modifier"></span>
                                 <a href="#metaValue" >metaValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                <a href="#post" >post</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#updateDate" >updateDate</a>
                             </li>
                         </ul>
                     </td>
@@ -157,7 +165,6 @@
     </table>
 </section>
 
-
             <section data-compodoc="block-properties">
     
     <h3 id="inputs">
@@ -167,9 +174,80 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="metaValue"></a>
+                    <a name="createDate"></a>
                     <span class="name">
                             <span class="modifier"></span>
+                        <span ><b>createDate</b></span>
+                        <a href="#createDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @CreateDateColumn()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/meta-options/meta-option.entity.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @PrimaryGeneratedColumn()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/meta-options/meta-option.entity.ts:7</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="metaValue"></a>
+                    <span class="name">
                             <span class="modifier"></span>
                         <span ><b>metaValue</b></span>
                         <a href="#metaValue"><span class="icon ion-ios-link"></span></a>
@@ -187,13 +265,86 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsJSON()<br />@IsNotEmpty()<br />
+                            @Column({type: &#x27;json&#x27;, nullable: false})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/meta-options/dtos/create-post-meta-options.dto.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/meta-options/meta-option.entity.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="post"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>post</b></span>
+                        <a href="#post"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../entitys/Post.html" target="_self" >Post</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @OneToOne(undefined, post &#x3D;&gt; post.metaOptions, {onDelete: &#x27;CASCADE&#x27;})<br />@JoinColumn()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/meta-options/meta-option.entity.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateDate"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>updateDate</b></span>
+                        <a href="#updateDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @UpdateDateColumn()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/meta-options/meta-option.entity.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -201,26 +352,44 @@
         </tbody>
     </table>
 </section>
-
-
-
-
-
-
-
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsJSON, IsNotEmpty } from &quot;class-validator&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Post } from &quot;src/posts/post.entity&quot;;
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from &quot;typeorm&quot;;
 
-export class CreateProstMetaOptionsDto{
-    @IsJSON()
-    @IsNotEmpty()
+@Entity()
+export class MetaOption{
+    @PrimaryGeneratedColumn()
+    id:number;
+
+    @Column({
+        type: &#x27;json&#x27;,
+        nullable: false,
+    })
     metaValue: string;
+
+    @CreateDateColumn()
+    createDate: Date;
+
+    @UpdateDateColumn()
+    updateDate: Date
+
+    @OneToOne(() &#x3D;&gt; Post, (post) &#x3D;&gt; post.metaOptions, {
+        onDelete: &#x27;CASCADE&#x27;
+    })
+    @JoinColumn()
+    post:Post;
 }</code></pre>
     </div>
 </div>
+
+
+
+
+
+
 
 
 
@@ -255,8 +424,8 @@ export class CreateProstMetaOptionsDto{
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'CreateProstMetaOptionsDto.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'entity';
+            var COMPODOC_CURRENT_PAGE_URL = 'MetaOption.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
